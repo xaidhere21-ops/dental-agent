@@ -3,45 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" 
+    content="script-src 'self' 'unsafe-inline' 
+    'unsafe-eval' https://omnidim.io https://*.omnidim.io;">
+  <meta name="referrer" content="no-referrer-when-downgrade">
   <title>Bright Smile Dental Clinic</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #f0f9ff;
       color: #1e293b;
     }
-
     header {
       background: linear-gradient(135deg, #0ea5e9, #059669);
       color: white;
       padding: 20px;
       text-align: center;
     }
-
-    header h1 {
-      font-size: 26px;
-      margin-bottom: 6px;
-    }
-
-    header p {
-      font-size: 14px;
-      opacity: 0.9;
-    }
-
+    header h1 { font-size: 26px; margin-bottom: 6px; }
+    header p { font-size: 14px; opacity: 0.9; }
     .hero {
       text-align: center;
       padding: 40px 20px;
       background: white;
     }
-
     .hero h2 {
       font-size: 22px;
       color: #0ea5e9;
       margin-bottom: 10px;
     }
-
     .hero p {
       font-size: 15px;
       color: #64748b;
@@ -49,7 +40,6 @@
       margin: 0 auto 20px;
       line-height: 1.6;
     }
-
     .badge {
       display: inline-block;
       background: #dcfce7;
@@ -60,26 +50,22 @@
       font-weight: 600;
       margin-bottom: 30px;
     }
-
     .services {
       padding: 30px 20px;
       max-width: 600px;
       margin: 0 auto;
     }
-
     .services h3 {
       font-size: 18px;
       margin-bottom: 16px;
       text-align: center;
       color: #0f172a;
     }
-
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-
     .card {
       background: white;
       border-radius: 12px;
@@ -87,27 +73,30 @@
       text-align: center;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-
     .card .icon { font-size: 24px; margin-bottom: 8px; }
-    .card .label { font-size: 13px; font-weight: 600; color: #1e293b; }
-    .card .desc { font-size: 12px; color: #64748b; margin-top: 4px; }
-
+    .card .label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+    .card .desc {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 4px;
+    }
     .info {
       background: white;
-      margin: 20px;
       border-radius: 16px;
       padding: 20px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       max-width: 560px;
       margin: 20px auto;
     }
-
     .info h3 {
       font-size: 16px;
       margin-bottom: 12px;
       color: #0f172a;
     }
-
     .info-row {
       display: flex;
       align-items: center;
@@ -116,10 +105,8 @@
       border-bottom: 1px solid #f1f5f9;
       font-size: 14px;
     }
-
     .info-row:last-child { border-bottom: none; }
     .info-row .ico { font-size: 18px; }
-
     footer {
       text-align: center;
       padding: 20px;
@@ -138,8 +125,8 @@
   <div class="hero">
     <div class="badge">🟢 AI Assistant Online 24/7</div>
     <h2>Talk to Our AI Receptionist</h2>
-    <p>Book appointments, ask dental questions, 
-    reschedule or cancel — instantly, any time of day. 
+    <p>Book appointments, ask dental questions,
+    reschedule or cancel — instantly, any time of day.
     No waiting on hold!</p>
   </div>
 
@@ -200,11 +187,17 @@
   </div>
 
   <footer>
-    © 2026 Bright Smile Dental Clinic. 
+    © 2026 Bright Smile Dental Clinic.
     Powered by AI Assistant.
   </footer>
 
-  <<script id="omnidimension-web-widget" async src="https://omnidim.io/web_widget.js?secret_key=26bef2937c282b9dae97421bbae6ec0f" ></script>>
+  <!-- OmniDimension AI Widget -->
+  <script
+    id="omnidimension-web-widget"
+    async
+    crossorigin="anonymous"
+    src="https://omnidim.io/web_widget.js?secret_key=26bef2937c282b9dae97421bbae6ec0f">
+  </script>
 
 </body>
 </html>

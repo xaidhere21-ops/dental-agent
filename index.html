@@ -7,7 +7,7 @@
     content="script-src 'self' 'unsafe-inline' 
     'unsafe-eval' https://omnidim.io https://*.omnidim.io;">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <title>Pearl Dental Care — AI Assistant</title>
+  <title>Dental AI Assistant — Live Demo</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -50,6 +50,57 @@
       font-weight: 600;
       margin-bottom: 30px;
     }
+    .how-it-works {
+      background: white;
+      padding: 30px 20px;
+      margin-top: 10px;
+    }
+    .how-it-works h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #0f172a;
+      font-weight: 700;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .step {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #f8fafc;
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .step-number {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #0ea5e9, #059669);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .step-text .title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .step-text .desc {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 2px;
+    }
     .services {
       padding: 30px 20px;
       max-width: 640px;
@@ -87,55 +138,37 @@
       color: #64748b;
       margin-top: 4px;
     }
-    .doctors {
+    .benefits {
       background: white;
       padding: 30px 20px;
       margin-top: 10px;
     }
-    .doctors h3 {
+    .benefits h3 {
       font-size: 20px;
       margin-bottom: 16px;
       text-align: center;
       color: #0f172a;
       font-weight: 700;
     }
-    .doctor-grid {
+    .benefit-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      max-width: 560px;
+      gap: 10px;
+      max-width: 500px;
       margin: 0 auto;
     }
-    .doctor-card {
+    .benefit-item {
       display: flex;
       align-items: center;
-      gap: 14px;
-      background: #f8fafc;
-      border-radius: 14px;
-      padding: 16px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-    }
-    .doctor-avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #0ea5e9, #059669);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-    .doctor-info .name {
+      gap: 12px;
+      padding: 12px 16px;
+      background: #f0fdf4;
+      border-radius: 12px;
       font-size: 14px;
-      font-weight: 700;
-      color: #0f172a;
+      color: #1e293b;
+      font-weight: 500;
     }
-    .doctor-info .specialty {
-      font-size: 12px;
-      color: #64748b;
-      margin-top: 2px;
-    }
+    .benefit-item .ico { font-size: 20px; }
     .info {
       background: white;
       border-radius: 16px;
@@ -157,38 +190,60 @@
       padding: 10px 0;
       border-bottom: 1px solid #f1f5f9;
       font-size: 14px;
-      color: #1e293b;
+      color: #64748b;
+      font-style: italic;
     }
     .info-row:last-child { border-bottom: none; }
     .info-row .ico { font-size: 20px; }
-    .insurance {
-      background: #f0fdf4;
+    .cta {
+      background: linear-gradient(135deg, #0ea5e9, #059669);
+      padding: 30px 20px;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .cta h3 {
+      font-size: 20px;
+      color: white;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .cta p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .cta-box {
+      background: white;
       border-radius: 16px;
       padding: 20px;
-      max-width: 560px;
-      margin: 0 auto 20px;
-      text-align: center;
+      max-width: 400px;
+      margin: 0 auto;
     }
-    .insurance h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #0f172a;
-      margin-bottom: 12px;
+    .cta-box p {
+      color: #64748b;
+      font-size: 13px;
+      margin-bottom: 0;
     }
-    .insurance-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
+    .cta-box .price {
+      font-size: 32px;
+      font-weight: 800;
+      color: #0ea5e9;
+      margin: 8px 0;
     }
-    .tag {
-      background: white;
-      border: 1.5px solid #86efac;
-      color: #16a34a;
-      padding: 5px 14px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
+    .cta-box .price span {
+      font-size: 14px;
+      color: #94a3b8;
+      font-weight: 400;
+    }
+    .cta-box .features {
+      text-align: left;
+      margin: 12px 0;
+    }
+    .cta-box .feature {
+      font-size: 13px;
+      color: #1e293b;
+      padding: 4px 0;
     }
     footer {
       text-align: center;
@@ -196,7 +251,7 @@
       font-size: 12px;
       color: #94a3b8;
       border-top: 1px solid #e2e8f0;
-      margin-top: 20px;
+      margin-top: 0;
     }
     footer span {
       color: #0ea5e9;
@@ -208,147 +263,198 @@
 
   <!-- HEADER -->
   <header>
-    <h1>🦷 Pearl Dental Care</h1>
-    <p>Your smile is our priority — Karachi, Pakistan</p>
+    <h1>🦷 Dental AI Assistant</h1>
+    <p>See how AI can work for your clinic — Live Demo</p>
   </header>
 
   <!-- HERO -->
   <div class="hero">
-    <div class="badge">🟢 AI Assistant Online 24/7</div>
-    <h2>Talk to Our AI Receptionist</h2>
-    <p>Book appointments, ask dental questions, 
-    reschedule or cancel — instantly, any time 
-    of day. No waiting on hold!</p>
+    <div class="badge">🟢 Live Demo — Try It Right Now!</div>
+    <h2>Your Clinic's AI Receptionist</h2>
+    <p>This is a live demo of what your dental clinic 
+    could have. Click the widget button and speak to 
+    the AI just like a real patient would!</p>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-it-works">
+    <h3>⚡ How It Works</h3>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-text">
+          <div class="title">Patient visits your website</div>
+          <div class="desc">
+            They see the AI assistant button 24/7
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-text">
+          <div class="title">They click and start talking</div>
+          <div class="desc">
+            Voice or chat — works on any device
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-text">
+          <div class="title">AI answers and books</div>
+          <div class="desc">
+            Questions answered, appointments booked instantly
+          </div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-text">
+          <div class="title">You get more patients</div>
+          <div class="desc">
+            Even while you sleep or are with other patients
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- SERVICES -->
   <div class="services">
-    <h3>Our Services</h3>
+    <h3>🦷 What the AI Can Handle</h3>
     <div class="grid">
       <div class="card">
-        <div class="icon">🔍</div>
-        <div class="label">Checkup & Cleaning</div>
-        <div class="desc">Every 6 months recommended</div>
+        <div class="icon">📅</div>
+        <div class="label">Book Appointments</div>
+        <div class="desc">Collects all patient details</div>
       </div>
       <div class="card">
-        <div class="icon">✨</div>
-        <div class="label">Teeth Whitening</div>
-        <div class="desc">Fast & painless results</div>
+        <div class="icon">🔄</div>
+        <div class="label">Reschedule</div>
+        <div class="desc">Changes appointments easily</div>
       </div>
       <div class="card">
-        <div class="icon">🦷</div>
-        <div class="label">Fillings & Root Canal</div>
-        <div class="desc">Pain-free treatment</div>
+        <div class="icon">❌</div>
+        <div class="label">Cancellations</div>
+        <div class="desc">Handles cancels and rebooking</div>
       </div>
       <div class="card">
-        <div class="icon">😁</div>
-        <div class="label">Orthodontics</div>
-        <div class="desc">Braces & Invisalign</div>
-      </div>
-      <div class="card">
-        <div class="icon">👶</div>
-        <div class="label">Pediatric Dentistry</div>
-        <div class="desc">Gentle care for kids</div>
-      </div>
-      <div class="card">
-        <div class="icon">💎</div>
-        <div class="label">Dental Implants</div>
-        <div class="desc">Permanent tooth solution</div>
-      </div>
-      <div class="card">
-        <div class="icon">🌟</div>
-        <div class="label">Veneers & Smile</div>
-        <div class="desc">Complete smile makeover</div>
+        <div class="icon">💳</div>
+        <div class="label">Insurance Questions</div>
+        <div class="desc">Answers coverage queries</div>
       </div>
       <div class="card">
         <div class="icon">🚨</div>
-        <div class="label">Emergency Care</div>
-        <div class="desc">Same-day appointments</div>
+        <div class="label">Emergencies</div>
+        <div class="desc">Fast tracks urgent cases</div>
+      </div>
+      <div class="card">
+        <div class="icon">❓</div>
+        <div class="label">Patient FAQs</div>
+        <div class="desc">Hours, services, prices</div>
+      </div>
+      <div class="card">
+        <div class="icon">🌙</div>
+        <div class="label">After Hours</div>
+        <div class="desc">Works 24/7 non stop</div>
+      </div>
+      <div class="card">
+        <div class="icon">👶</div>
+        <div class="label">All Patient Types</div>
+        <div class="desc">New, existing, children</div>
       </div>
     </div>
   </div>
 
-  <!-- DOCTORS -->
-  <div class="doctors">
-    <h3>👨‍⚕️ Our Dentists</h3>
-    <div class="doctor-grid">
-      <div class="doctor-card">
-        <div class="doctor-avatar">👩‍⚕️</div>
-        <div class="doctor-info">
-          <div class="name">Dr. Ayesha Malik</div>
-          <div class="specialty">
-            General & Cosmetic Dentistry
-          </div>
-        </div>
+  <!-- BENEFITS -->
+  <div class="benefits">
+    <h3>✅ Why Clinics Love This</h3>
+    <div class="benefit-list">
+      <div class="benefit-item">
+        <span class="ico">💰</span>
+        Never lose a patient to a missed call again
       </div>
-      <div class="doctor-card">
-        <div class="doctor-avatar">👨‍⚕️</div>
-        <div class="doctor-info">
-          <div class="name">Dr. Usman Raza</div>
-          <div class="specialty">
-            Orthodontics & Invisalign
-          </div>
-        </div>
+      <div class="benefit-item">
+        <span class="ico">🕐</span>
+        Works 24/7 even when your clinic is closed
       </div>
-      <div class="doctor-card">
-        <div class="doctor-avatar">👩‍⚕️</div>
-        <div class="doctor-info">
-          <div class="name">Dr. Sara Khalid</div>
-          <div class="specialty">
-            Pediatric & Family Dentistry
-          </div>
-        </div>
+      <div class="benefit-item">
+        <span class="ico">📞</span>
+        Handles calls while your staff are busy
+      </div>
+      <div class="benefit-item">
+        <span class="ico">⚡</span>
+        Set up and live on your website in 30 minutes
+      </div>
+      <div class="benefit-item">
+        <span class="ico">🤖</span>
+        Sounds natural — patients love talking to it
+      </div>
+      <div class="benefit-item">
+        <span class="ico">📈</span>
+        More bookings with zero extra staff cost
       </div>
     </div>
   </div>
 
-  <!-- CLINIC INFO -->
+  <!-- DEMO INFO -->
   <div class="info">
-    <h3>📋 Clinic Information</h3>
+    <h3>🎯 This is a Demo — Here is What You Get</h3>
+    <div class="info-row">
+      <span class="ico">🦷</span>
+      <span>Customised with your real clinic name</span>
+    </div>
+    <div class="info-row">
+      <span class="ico">👨‍⚕️</span>
+      <span>Your real doctors and specialities</span>
+    </div>
     <div class="info-row">
       <span class="ico">📍</span>
-      <span>47 Clifton Street, Block 5, Karachi</span>
+      <span>Your real address and contact details</span>
     </div>
     <div class="info-row">
       <span class="ico">🕐</span>
-      <span>Mon–Fri: 9am–7pm | Sat: 10am–4pm</span>
+      <span>Your real working hours and services</span>
     </div>
     <div class="info-row">
-      <span class="ico">📞</span>
-      <span>021-3456-7890</span>
+      <span class="ico">💳</span>
+      <span>Your real insurance providers</span>
     </div>
     <div class="info-row">
-      <span class="ico">✉️</span>
-      <span>hello@pearldentalcare.com</span>
-    </div>
-    <div class="info-row">
-      <span class="ico">🚪</span>
-      <span>Sunday: Closed</span>
+      <span class="ico">🚀</span>
+      <span>Live on your website within 30 minutes</span>
     </div>
   </div>
 
-  <!-- INSURANCE -->
-  <div class="insurance">
-    <h3>💳 Insurance We Accept</h3>
-    <div class="insurance-tags">
-      <span class="tag">Jubilee Insurance</span>
-      <span class="tag">EFU Health</span>
-      <span class="tag">Adamjee Insurance</span>
-      <span class="tag">State Life</span>
-      <span class="tag">Pak Qatar Takaful</span>
+  <!-- CTA -->
+  <div class="cta">
+    <h3>Ready to Get This for Your Clinic?</h3>
+    <p>Join dental clinics already using AI to get 
+    more patients and never miss a call again</p>
+    <div class="cta-box">
+      <p>Starting from just</p>
+      <div class="price">$50 <span>/ month</span></div>
+      <div class="features">
+        <div class="feature">✅ Full setup included</div>
+        <div class="feature">✅ Customised for your clinic</div>
+        <div class="feature">✅ Voice and chat support</div>
+        <div class="feature">✅ Live within 30 minutes</div>
+        <div class="feature">✅ No technical skills needed</div>
+      </div>
+      <p>Contact us to get started today!</p>
     </div>
   </div>
 
   <!-- FOOTER -->
   <footer>
-    © 2026 Pearl Dental Care — Karachi, Pakistan<br>
-    Powered by <span>AI Voice Assistant</span>
+    © 2026 Dental AI Assistant Demo<br>
+    Powered by <span>AI Voice Technology</span>
   </footer>
 
   <!-- OMNIDIMENSION AI WIDGET -->
-  <script 
-    id="omnidimension-web-widget" 
-    async 
+  <script
+    id="omnidimension-web-widget"
+    async
     crossorigin="anonymous"
     src="https://omnidim.io/web_widget.js?secret_key=5a8c77f46aeed7960a0228eaf6d9db8b">
   </script>
